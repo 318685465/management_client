@@ -5,12 +5,16 @@ import { createStore } from 'vuex'
 const store = createStore({
   state () {
     return {
-      count: 0
+      count: 0,
+      event: "",
     }
   },
   mutations: {
     increment (state: any) {
       state.count++
+    },
+    setEvent(state, eventName:string){
+      state.event = eventName
     }
   }
 })
