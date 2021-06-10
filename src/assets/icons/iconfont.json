@@ -1,0 +1,44 @@
+{
+  "id": "2606392",
+  "name": "management",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1159876",
+      "name": "文件夹",
+      "font_class": "wenjianjia",
+      "unicode": "e60c",
+      "unicode_decimal": 58892
+    },
+    {
+      "icon_id": "5651479",
+      "name": "个人",
+      "font_class": "geren",
+      "unicode": "e670",
+      "unicode_decimal": 58992
+    },
+    {
+      "icon_id": "11749423",
+      "name": "齿轮",
+      "font_class": "chilun",
+      "unicode": "e679",
+      "unicode_decimal": 59001
+    },
+    {
+      "icon_id": "11759939",
+      "name": "人物",
+      "font_class": "renwu",
+      "unicode": "e7b8",
+      "unicode_decimal": 59320
+    },
+    {
+      "icon_id": "18211073",
+      "name": "社区",
+      "font_class": "shequ",
+      "unicode": "e7a5",
+      "unicode_decimal": 59301
+    }
+  ]
+}

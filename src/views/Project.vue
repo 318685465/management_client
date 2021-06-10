@@ -21,7 +21,8 @@ export default {
 
 <style lang="scss" scoped>
 .project-area{
-    background-color: rgba($color: #afb4db, $alpha: 0.4);
+    background-color: rgba($color: #00ae9d, $alpha: 0.4);
     height: 95%;
+    display: flex;
 }
 </style>

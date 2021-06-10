@@ -36,7 +36,7 @@ export default {
 <style lang="scss" scoped>
 header{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     box-shadow: 0 5px 4px -4px #000;
     .header-logo{
         display: flex;
