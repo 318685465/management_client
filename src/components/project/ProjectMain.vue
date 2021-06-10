@@ -1,5 +1,5 @@
 <template>
-  <div style="color:#fff;">regist</div>
+  <div>main</div>
 </template>
 
 <script>

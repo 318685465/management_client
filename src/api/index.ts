@@ -25,6 +25,7 @@ api.interceptors.response.use((res: AxiosResponse) => {
             type: "warning",
             message: response.msg
         })
+        return res.data.code
     }
     return res.data.msg
 }, err => console.log(err));

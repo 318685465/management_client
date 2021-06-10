@@ -1,37 +1,42 @@
 <template>
-  <div class="login">
-      <div class="login-img">
-        <img :src="login_background" >
-        <div class="login-img-mak"></div>
+  <div class="auth">
+      <div class="auth-img">
+        <img :src="auth_background" >
+        <div class="auth-img-mask"></div>
       </div>
-      <div class="login-card" v-if="event === 'login'">
-          <div class="login-bg"></div>
+      <div class="auth-card" v-if="event === 'login'">
+          <div class="auth-bg"></div>
           <LoginForm />
       </div>
-      <div class="login-card" v-else-if="event === 'regist'">
-          <div class="login-bg"></div>
+      <div class="auth-card" v-else-if="event === 'regist'">
+          <div class="auth-bg"></div>
           <RegistForm />
       </div>
-      <div class="login-card" v-else-if="event === 'alter'">
-          <div class="login-bg"></div>
+      <div class="auth-card" v-else-if="event === 'alter'">
+          <div class="auth-bg"></div>
           <AlterForm />
+      </div>
+      <div class="auth-card" v-else-if="event === 'message'">
+          <div class="auth-bg"></div>
+          <MessageForm />
       </div>
   </div>
 </template>
 
 <script>
 import { _hello } from '../api/user/index'
-import LoginForm from '../components/login/LoginForm.vue'
-import RegistForm from '../components/login/RegistForm.vue'
-import AlterForm from '../components/login/AlterForm.vue'
-import login_background from '../assets/images/vscode_bg.jpg'
+import LoginForm from '../components/auth/LoginForm.vue'
+import RegistForm from '../components/auth/RegistForm.vue'
+import AlterForm from '../components/auth/AlterForm.vue'
+import MessageForm from '../components/auth/MessageForm.vue'
+import auth_background from '../assets/images/vscode_bg.jpg'
 export default {
-    components: { LoginForm, RegistForm, AlterForm },
+    components: { LoginForm, RegistForm, AlterForm, MessageForm },
     setup(){},
     data(){
         return {
-            login_background,
-            event: "login"
+            auth_background,
+            event: "message"
         }
     },
     computed: {
@@ -48,15 +53,15 @@ export default {
 }
 </script>
 
-<style lang="scss">
-.login{
+<style lang="scss" scoped>
+.auth{
     position: absolute;
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    .login-img{
+    .auth-img{
         width: 100%;
         height: 100%;
         position: absolute;
@@ -66,7 +71,7 @@ export default {
             width: 100%;
             height: 100%;
         }
-        .login-img-mak{
+        .auth-img-mak{
             position: absolute;
             left: 0;
             top: 0;
@@ -75,8 +80,8 @@ export default {
             background-color: rgba($color: #000000, $alpha: 0.1);
         }
     }
-    .login-card{
-        width: 50%;
+    .auth-card{
+        width: 60%;
         height: 60%;
         position: absolute;
         right: 10%;
@@ -84,7 +89,7 @@ export default {
         border-radius: 10px;
         padding: 20px;
         display: flex;
-        .login-bg{
+        .auth-bg{
             width: 50%;
             height: 100%;
             border-radius: 10px 0 0 10px;

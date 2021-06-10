@@ -1,8 +1,10 @@
 import * as VueRouter from 'vue-router'
-import Login from '../views/Login.vue'
+import Auth from '../views/Auth.vue'
+import Project from '../views/Project.vue'
 
 const routes = [
-    { path: '/', component: Login },
+    { path: '/', component: Project },
+    { path: '/project', component: Project },
 ]
 
 // 3. 创建路由实例并传递 `routes` 配置

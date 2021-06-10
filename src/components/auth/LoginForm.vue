@@ -5,13 +5,13 @@
           <h2>登录</h2>
           <h4>
             你尚未拥有账户？点击
-            <span class="login-regist" @click="regist">注册</span>
+            <span class="login-regist" @click="changeEvent('regist')">注册</span>
             进行登录
           </h4>
       </header>
       <article>
           <el-form
-            :model="ruleForm"
+            :model="LoginFormData"
             :rules="rules"
             ref="ruleForm"
             label-width="100px"
@@ -32,7 +32,7 @@
           </el-checkbox>
 
           <div class="login-button">
-              <el-button type="warning" @click="alter">找回</el-button>
+              <el-button type="warning" @click="changeEvent('alter')">找回</el-button>
               <el-button type="primary" @click="login">登录</el-button>
           </div>
       </article>
@@ -45,7 +45,8 @@
 </template>
 
 <script>
-import { _login } from '../../api/auth'
+import { _login, IUserinfo } from '../../api/auth'
+import store from '../../store';
 export default {
     name: "LoginForm",
     data(){
@@ -87,20 +88,18 @@ export default {
     },
     methods:{
         async login(){
-            const res = await _login(this.LoginFormData);
-            console.log(res)
-            if(res.token){
+            return new Promise(res => {
+                res(_login(this.LoginFormData))
+            })
+            .then(res => {
+                if(typeof res === "number") throw ''
                 localStorage.setItem('token', res.token);
                 localStorage.setItem("userid", res.userid)
-            }
+            })
         },
-        alter(){
-            console.log('alter')
-            this.$store.commit("setEvent", "alter")
-        },
-        regist(){
-            this.$store.commit("setEvent", "regist")
-        },
+        changeEvent(eventName){
+            store.commit("setEvent", eventName)
+        }
     }
 }
 </script>
@@ -129,7 +128,7 @@ export default {
         .login-form-body{
             .phone, .password{
                 width: 80%;
-                padding: 15px;
+                padding: 5px 15px;
             }
         }
         .login-ready{

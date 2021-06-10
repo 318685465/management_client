@@ -20,9 +20,7 @@ export default defineComponent({
   font-family: Avenir, Helvetical, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  background-color: red;
   position: fixed;
   width: 100%;
   height: 100%;
