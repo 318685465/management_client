@@ -3,20 +3,21 @@
     <div class="main-title">
       <div class="title-name">项目</div>
       <div class="title-item title-buttons">
-        <el-button type="success" class="title-button">新增</el-button>
+        <el-button type="success" size="small" class="title-button">新增</el-button>
         <el-input
           class="title-item title-search"
           placeholder="请输入搜索内容"
           prefix-icon="el-icon-search"
           v-model="searchValue"
+          size="small"
         >
-
         </el-input>
       </div>
     </div>
     <div class="main-form">
       <el-table
         class="form"
+        stripe
         :data="tableData"
         style="width: 100%; height: 90%;">
 
@@ -36,11 +37,21 @@
             </template>
         </el-table-column>
       </el-table>
+      <el-pagination
+        align="center"
+        layout="prev, pager, next"
+        :page-size="8"
+        :pager-count="5"
+        :page-count="pageCount"
+        @current-change="pageChange"
+        >
+      </el-pagination>
     </div>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { _projects } from '@api/project/index.ts'
 export default {
   data(){
     return {
@@ -60,8 +71,23 @@ export default {
           stage: '正在施工中',
           identify: "甲方"
         },
-      ]
+      ],
+      pageCount: 0
     }
+  },
+  methods: {
+    getProjects(page:number = 1){
+      _projects(page).then((res:any) => {
+        this.tableData = res.projects
+        this.pageCount = res.pageNums
+      })
+    },
+    pageChange(page:number){
+      this.getProjects(page);
+    }
+  },
+  mounted(){
+    this.getProjects()
   }
 }
 </script>
@@ -83,7 +109,7 @@ export default {
       padding-right: 2rem;
       display: flex;
       .title-button{
-        width: 100px;
+        // width: 100px;
       }
       .title-item{
         padding: 0 0.4rem;

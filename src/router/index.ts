@@ -3,7 +3,7 @@ import Auth from '../views/Auth.vue'
 import Project from '../views/Project.vue'
 
 const routes = [
-    { path: '/', component: Project },
+    { path: '/', component: Auth },
     { path: '/project', component: Project },
 ]
 

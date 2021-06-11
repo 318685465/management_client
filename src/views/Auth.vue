@@ -29,14 +29,14 @@ import LoginForm from '../components/auth/LoginForm.vue'
 import RegistForm from '../components/auth/RegistForm.vue'
 import AlterForm from '../components/auth/AlterForm.vue'
 import MessageForm from '../components/auth/MessageForm.vue'
-import auth_background from '../assets/images/vscode_bg.jpg'
+import auth_background from '@image/vscode_bg.jpg'
 export default {
     components: { LoginForm, RegistForm, AlterForm, MessageForm },
     setup(){},
     data(){
         return {
             auth_background,
-            event: "message"
+            event: "login"
         }
     },
     computed: {
@@ -47,7 +47,6 @@ export default {
     watch: {
         Event(newEvent){
             this.event = newEvent;
-            console.log(this.event)
         }
     }
 }

@@ -45,8 +45,8 @@
 </template>
 
 <script>
-import { _login, IUserinfo } from '../../api/auth'
-import store from '../../store';
+import { _login } from '@api/auth'
+import store from '@store';
 export default {
     name: "LoginForm",
     data(){
@@ -95,6 +95,8 @@ export default {
                 if(typeof res === "number") throw ''
                 localStorage.setItem('token', res.token);
                 localStorage.setItem("userid", res.userid)
+            }).then(() => {
+                this.$router.push('/project')
             })
         },
         changeEvent(eventName){
